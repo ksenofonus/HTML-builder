@@ -7,6 +7,11 @@ const rl = readline.createInterface({ input, output });
 rl.setPrompt('Please enter your line ');
 rl.prompt();
 rl.on('line', (data) => {
-  outputStream.write(`${data}`);
-  rl.close();
+  if (data === 'exit') {
+    console.log('Good bye');
+    rl.close();
+  } else {
+    outputStream.write(`${data}`);
+    rl.close();
+  }
 });
